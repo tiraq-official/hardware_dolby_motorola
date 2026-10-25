@@ -346,37 +346,11 @@ android_app_import {
     dex_preopt: {
         enabled: false,
     },
-    required: [
-        "motoaudioeffectsdk.xml",
-        "moto-checkin.xml",
-        "com.motorola.frameworks.core.addon.xml",
-        "moto-settings.xml",
-    ],
 }
 
-prebuilt_etc {
-    name: "motoaudioeffectsdk.xml",
-    src: "configs/permissions/motoaudioeffectsdk.xml",
-    sub_dir: "permissions",
-}
 
-prebuilt_etc {
-    name: "moto-checkin.xml",
-    src: "configs/permissions/moto-checkin.xml",
-    sub_dir: "permissions",
-}
 
-prebuilt_etc {
-    name: "com.motorola.frameworks.core.addon.xml",
-    src: "configs/permissions/com.motorola.frameworks.core.addon.xml",
-    sub_dir: "permissions",
-}
 
-prebuilt_etc {
-    name: "moto-settings.xml",
-    src: "configs/permissions/moto-settings.xml",
-    sub_dir: "permissions",
-}
 
 
 cc_prebuilt_library_shared {

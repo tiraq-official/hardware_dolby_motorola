@@ -55,20 +55,15 @@ PRODUCT_PACKAGES += \
     daxService \
     MotoDolbyDax3
 
-# Framework libraries MotoDolbyDax3 depends on
-PRODUCT_COPY_FILES += \
-    $(DOLBY_PATH)/proprietary/system/framework/motoaudioeffectsdk.jar:$(TARGET_COPY_OUT_SYSTEM)/framework/motoaudioeffectsdk.jar \
-    $(DOLBY_PATH)/proprietary/system/framework/moto-checkin.jar:$(TARGET_COPY_OUT_SYSTEM)/framework/moto-checkin.jar \
-    $(DOLBY_PATH)/proprietary/system/framework/com.motorola.frameworks.core.addon.jar:$(TARGET_COPY_OUT_SYSTEM)/framework/com.motorola.frameworks.core.addon.jar \
-    $(DOLBY_PATH)/proprietary/system/framework/moto-settings.jar:$(TARGET_COPY_OUT_SYSTEM)/framework/moto-settings.jar
+# NOTE: the Motorola framework libraries MotoDolbyDax3 depends on
+# (motoaudioeffectsdk, moto-checkin, com.motorola.frameworks.core.addon,
+#  moto-settings) and their permission XMLs are already provided by the vendor
+# blob repo (vendor/motorola/sm6375-common). Shipping them here collides with
+# that repo's modules, so we don't.
 
 # Permissions / features / configs
 PRODUCT_COPY_FILES += \
     $(DOLBY_PATH)/configs/permissions/com.dolby.daxservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/com.dolby.daxservice.xml \
-    $(DOLBY_PATH)/configs/permissions/motoaudioeffectsdk.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/motoaudioeffectsdk.xml \
-    $(DOLBY_PATH)/configs/permissions/moto-checkin.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/moto-checkin.xml \
-    $(DOLBY_PATH)/configs/permissions/com.motorola.frameworks.core.addon.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.motorola.frameworks.core.addon.xml \
-    $(DOLBY_PATH)/configs/permissions/moto-settings.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/moto-settings.xml \
     $(DOLBY_PATH)/configs/permissions/com.motorola.dolby.dolbyui.dax3.features.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.motorola.dolby.dolbyui.dax3.features.xml \
     $(DOLBY_PATH)/configs/sysconfig/hiddenapi-whitelist-com.motorola.dolby.dolbyui.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/hiddenapi-whitelist-com.motorola.dolby.dolbyui.xml \
     $(DOLBY_PATH)/configs/default-permissions/default-permissions-com.motorola.dolby.dolbyui.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions-com.motorola.dolby.dolbyui.xml
