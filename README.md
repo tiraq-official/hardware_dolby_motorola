@@ -41,3 +41,6 @@ picks up `media_codecs_dolby_audio.xml`.
 
 - **Motorola** and **Dolby Laboratories** for the stack and the tuning.
 
+
+NOTE: the store currently fails to register on this device(Codec2-FilterWrapper: plugin not OK: -19) - Motorola's blob rejects it internally. Harmless: nothing is declared, so boot is unaffected. If a matching libcodec2 ever turns up, this is already wired and may just work.
+
