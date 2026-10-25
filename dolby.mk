@@ -88,6 +88,21 @@ PRODUCT_PACKAGES += \
     libsfplugin_ccodec_utils.vendor \
     libcodec2_soft_common.vendor
 
+# Dolby Codec2 store + decoders (DD+ / E-AC-3 / AC-4)
+# The store is NOT declared in the device VINTF manifest on purpose: a declared
+# but unregistered IComponentStore blocks mediaserver during boot. Undeclared, a
+# failed registration only logs and the system boots normally.
+PRODUCT_PACKAGES += \
+    vendor.dolby.media.c2@1.0-service \
+    libcodec2_store_dolby \
+    libcodec2_soft_ddpdec \
+    libcodec2_soft_ac4dec \
+    libdeccfg
+
+PRODUCT_COPY_FILES += \
+    $(DOLBY_PATH)/configs/media_codecs_dolby_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_dolby_audio.xml \
+    $(DOLBY_PATH)/proprietary/vendor/etc/init/vendor.dolby.media.c2@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.media.c2@1.0-service.rc
+
 # Codec2 Props
 PRODUCT_VENDOR_PROPERTIES += \
     vendor.audio.c2.preferred=true \
