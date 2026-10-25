@@ -44,11 +44,11 @@ cc_prebuilt_library_shared {
 	target: {
 		android_arm: {
 			srcs: ["proprietary/vendor/lib/libdlbpreg.so"],
-			shared_libs: ["libaudioroute", "libc++", "libc", "libcutils", "libdl", "libgui_vendor", "liblog", "libm", "libsensorndkbridge", "libtinyalsa", "libutils", ],
+			shared_libs: ["libaudioutils", "libc", "libc++", "libcutils", "libdl", "liblog", "libm", "libstagefright_foundation-v33", "libutils", ],
 		},
 		android_arm64: {
 			srcs: ["proprietary/vendor/lib64/libdlbpreg.so"],
-			shared_libs: ["libaudioroute", "libc++", "libc", "libcutils", "libdl", "libgui_vendor", "liblog", "libm", "libsensorndkbridge", "libtinyalsa", "libutils", ],
+			shared_libs: ["libaudioutils", "libc", "libc++", "libcutils", "libdl", "liblog", "libm", "libstagefright_foundation-v33", "libutils", ],
 		},
 	},
 	compile_multilib: "both",
