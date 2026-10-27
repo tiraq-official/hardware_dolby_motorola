@@ -4,14 +4,3 @@ service vendor-dolby-media-c2-hal-1-0 /vendor/bin/hw/vendor.dolby.media.c2@1.0-s
     group camera mediadrm drmrpc
     ioprio rt 4
     writepid /dev/cpuset/foreground/tasks
-    disabled
-
-# The Dolby decoders reach the DMS through libdeccfg -> libdmshal, so the Codec2
-# store cannot initialise before the DMS HAL is running. Start it once the DMS is
-# up; sys.boot_completed is a fallback so the service can never be left off.
-# Note: 'disabled' keeps the normal class_start from racing the DMS.
-on property:init.svc.dms-hal-2-1=running
-    start vendor-dolby-media-c2-hal-1-0
-
-on property:sys.boot_completed=1
-    start vendor-dolby-media-c2-hal-1-0
